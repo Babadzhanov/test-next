@@ -1,8 +1,15 @@
-# Next.js gh-pages Hello World example
+# gh-pages Hello World example
 
-This repository is a gh-pages example build with Next.js
+## How to use
 
-https://thierryc.github.io/Next-gh-page-example/
+### Download manually
+
+Download the example [or clone the repo](https://github.com/zeit/next.js):
+
+```bash
+curl https://codeload.github.com/zeit/next.js/tar.gz/master | tar -xz --strip=2 next.js-master/examples/gh-pages
+cd gh-pages
+```
 
 Install it and run:
 
@@ -35,21 +42,6 @@ https://github-user-name.github.io/github-projet-name/
 
 ```
 
-## Custom domain setting
-
-You can add on to the deploy command to create the CNAME file for you. GitHub detects this file and automatically updates the custom domain setting. Edit the package.json deploy script and replace example.com with your custom domain. (Thank you to @jabacchetta)
-
-```bash
-next build
-&& next export
-&& touch out/.nojekyll
-&& touch out/CNAME
-&& echo \"example.com\" >> out/CNAME
-&& git add out/
-&& git commit -m \"Deploy to gh-pages\"
-&& git subtree push --prefix out origin gh-pages"
-```
-
 Example:
 
 ```bash
@@ -59,7 +51,6 @@ https://github.com/thierryc/Next-gh-page-example/
 https://thierryc.github.io/Next-gh-page-example/
 
 ```
-
 
 ## The idea behind the example
 
