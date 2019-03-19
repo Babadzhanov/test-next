@@ -1,7 +1,8 @@
-import Layout from '../components/Layout.js'
+import Layout from "../components/Layout.js";
 
 export default () => (
-    <Layout>
-       <p>This is the about page</p>
-    </Layout>
-)
+  <Layout>
+    <h1>About</h1>
+    <p>This is the about page</p>
+  </Layout>
+);
