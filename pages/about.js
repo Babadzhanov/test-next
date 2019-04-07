@@ -1,6 +1,9 @@
 import Link from "next/link";
+
+import Layout from "../components/layout";
+
 export default () => (
-  <div>
+  <Layout>
     <h1>About page.</h1>
     <div>
       Back to{" "}
@@ -8,5 +11,5 @@ export default () => (
         <a>Home</a>
       </Link>
     </div>
-  </div>
+  </Layout>
 );
