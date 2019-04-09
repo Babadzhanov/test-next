@@ -14,6 +14,7 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   float: left;
+  background-color: ${props => (props.active ? "green" : "")};
   a {
     display: block;
     color: white;
@@ -25,17 +26,14 @@ const Li = styled.li`
       background-color: #111;
     }
   }
-  .active {
-    background-color: #4caf50;
-  }
 `;
 
 export default () => (
   <div>
     <Ul>
-      <Li>
+      <Li active>
         <Link href="/" as={process.env.BACKEND_URL + "/"}>
-          <a className="active">Home</a>
+          <a>Home</a>
         </Link>
       </Li>
       <Li>
