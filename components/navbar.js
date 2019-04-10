@@ -29,21 +29,19 @@ const Li = styled.li`
 `;
 
 export default () => (
-  <div>
-    <Ul>
-      <Li active>
-        <Link href="/" as={process.env.BACKEND_URL + "/"}>
-          <a>Home</a>
-        </Link>
-      </Li>
-      <Li>
-        <Link href="/about" as={process.env.BACKEND_URL + "/about"}>
-          <a>About</a>
-        </Link>
-      </Li>
-      <Li>
-        <a href="#contact">Contact</a>
-      </Li>
-    </Ul>
-  </div>
+  <Ul>
+    <Li active>
+      <Link href="/" as={process.env.BACKEND_URL + "/"}>
+        <a>Home</a>
+      </Link>
+    </Li>
+    <Li>
+      <Link href="/about" as={process.env.BACKEND_URL + "/about"}>
+        <a>About</a>
+      </Link>
+    </Li>
+    <Li>
+      <a href="#contact">Contact</a>
+    </Li>
+  </Ul>
 );
