@@ -14,3 +14,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
   `;
+
+export const H1 = styled.h1`
+  color: gray;
+  display: flex;
+  justify-content: center;
+`;
