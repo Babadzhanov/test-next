@@ -1,10 +1,5 @@
-import styled from "styled-components";
-
 import Layout from "../components/layout";
-
-const H1 = styled.h1`
-  color: red;
-`;
+import { H1 } from "../theme";
 
 export default () => (
   <Layout>
