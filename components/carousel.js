@@ -6,12 +6,12 @@ const MySlides = styled.div`
 
   img {
     vertical-align: middle;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 300px;
   }
 `;
 
-const SlideshowContainer = styled.div`
+const CarouselContainer = styled.div`
   max-width: 1000px;
   position: relative;
   margin: auto;
@@ -31,6 +31,10 @@ const Arrow = styled.a`
   border-radius: 0 3px 3px 0;
   user-select: none;
 
+  @media (max-width: "300px") {
+    font-size: 11px;
+  }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
@@ -49,6 +53,38 @@ const Text = styled.div`
   bottom: 8px;
   width: 100%;
   text-align: center;
+
+  @media (max-width: "300px") {
+    font-size: 11px;
+  }
+`;
+
+const NumberText = styled.div`
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+`;
+
+const Dot = styled.span`
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+
+  &:hover {
+    background-color: #717171;
+  }
+`;
+
+const DotContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 let slideIndex = 1;
@@ -109,72 +145,34 @@ class Carousel extends Component {
 
   render() {
     return (
-      <div className="test">
-        <SlideshowContainer>
-          <MySlides>
-            <div className="numbertext">1 / 3</div>
+      <div>
+        <CarouselContainer>
+          <MySlides className="mySlides">
+            <NumberText>1 / 3</NumberText>
             <img src="static/hero1.jpg" />
             <Text>One</Text>
           </MySlides>
 
-          <MySlides>
-            <div className="numbertext">2 / 3</div>
+          <MySlides className="mySlides">
+            <NumberText>2 / 3</NumberText>
             <img src="static/hero2.jpg" />
             <Text>Two</Text>
           </MySlides>
 
-          <MySlides>
-            <div className="numbertext">3 / 3</div>
+          <MySlides className="mySlides">
+            <NumberText>3 / 3</NumberText>
             <img src="static/hero3.jpg" />
             <Text>Three</Text>
           </MySlides>
           <Arrow onClick={() => this.plusSlides(-1)}>&#10094;</Arrow>
           <ArrowRight onClick={() => this.plusSlides(1)}>&#10095;</ArrowRight>
-        </SlideshowContainer>
+        </CarouselContainer>
         <br />
-        <div>
-          <span className="dot" onClick={() => this.currentSlide(1)} />
-          <span className="dot" onClick={() => this.currentSlide(2)} />
-          <span className="dot" onClick={() => this.currentSlide(3)} />
-        </div>
-        <style jsx>
-          {`
-            /* Number text (1/3 etc) */
-            .numbertext {
-              color: #f2f2f2;
-              font-size: 12px;
-              padding: 8px 12px;
-              position: absolute;
-              top: 0;
-            }
-
-            /* The dots/bullets/indicators */
-            .dot {
-              cursor: pointer;
-              height: 15px;
-              width: 15px;
-              margin: 0 2px;
-              background-color: #bbb;
-              border-radius: 50%;
-              display: inline-block;
-              transition: background-color 0.6s ease;
-            }
-
-            .active,
-            .dot:hover {
-              background-color: #717171;
-            }
-
-            /* On smaller screens, decrease text size */
-            @media only screen and (max-width: 300px) {
-              .prev,
-              .next,
-              .text {
-                font-size: 11px;
-              }
-            }
-          `}
-        </style>
+        <DotContainer>
+          <Dot className="dot" onClick={() => this.currentSlide(1)} />
+          <Dot className="dot" onClick={() => this.currentSlide(2)} />
+          <Dot className="dot" onClick={() => this.currentSlide(3)} />
+        </DotContainer>
       </div>
     );
   }
