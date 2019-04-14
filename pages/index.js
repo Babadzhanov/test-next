@@ -4,7 +4,6 @@ import { H1 } from "../theme";
 
 export default () => (
   <div>
-    <div>testing</div>
     <Carousel />
     <Layout>
       <H1>Index page</H1>
