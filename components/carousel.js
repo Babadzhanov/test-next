@@ -1,4 +1,55 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const MySlides = styled.div`
+  display: none;
+
+  img {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+  }
+`;
+
+const SlideshowContainer = styled.div`
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+`;
+
+const Arrow = styled.a`
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const ArrowRight = styled(Arrow)`
+  right: 0;
+  border-radius: 3px 0 0 3px;
+`;
+
+const Text = styled.div`
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+`;
 
 let slideIndex = 1;
 
@@ -59,31 +110,27 @@ class Carousel extends Component {
   render() {
     return (
       <div className="test">
-        <div className="slideshow-container">
-          <div className="mySlides">
+        <SlideshowContainer>
+          <MySlides>
             <div className="numbertext">1 / 3</div>
-            <img className="testImage" src="static/hero1.jpg" />
-            <div className="text">One</div>
-          </div>
+            <img src="static/hero1.jpg" />
+            <Text>One</Text>
+          </MySlides>
 
-          <div className="mySlides">
+          <MySlides>
             <div className="numbertext">2 / 3</div>
-            <img className="testImage" src="static/hero2.jpg" />
-            <div className="text">Two</div>
-          </div>
+            <img src="static/hero2.jpg" />
+            <Text>Two</Text>
+          </MySlides>
 
-          <div className="mySlides">
+          <MySlides>
             <div className="numbertext">3 / 3</div>
-            <img className="testImage" src="static/hero3.jpg" />
-            <div className="text">Three</div>
-          </div>
-          <a className="prev" onClick={() => this.plusSlides(-1)}>
-            &#10094;
-          </a>
-          <a className="next" onClick={() => this.plusSlides(1)}>
-            &#10095;
-          </a>
-        </div>
+            <img src="static/hero3.jpg" />
+            <Text>Three</Text>
+          </MySlides>
+          <Arrow onClick={() => this.plusSlides(-1)}>&#10094;</Arrow>
+          <ArrowRight onClick={() => this.plusSlides(1)}>&#10095;</ArrowRight>
+        </SlideshowContainer>
         <br />
         <div>
           <span className="dot" onClick={() => this.currentSlide(1)} />
@@ -92,64 +139,6 @@ class Carousel extends Component {
         </div>
         <style jsx>
           {`
-            .mySlides {
-              display: none;
-            }
-            img {
-              vertical-align: middle;
-            }
-            .testImage {
-              width: 150px;
-              height: 150px;
-            }
-
-            /* Slideshow container */
-            .slideshow-container {
-              max-width: 1000px;
-              position: relative;
-              margin: auto;
-            }
-
-            /* Next & previous buttons */
-            .prev,
-            .next {
-              cursor: pointer;
-              position: absolute;
-              top: 50%;
-              width: auto;
-              padding: 16px;
-              margin-top: -22px;
-              color: white;
-              font-weight: bold;
-              font-size: 18px;
-              transition: 0.6s ease;
-              border-radius: 0 3px 3px 0;
-              user-select: none;
-            }
-
-            /* Position the "next button" to the right */
-            .next {
-              right: 0;
-              border-radius: 3px 0 0 3px;
-            }
-
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover,
-            .next:hover {
-              background-color: rgba(0, 0, 0, 0.2);
-            }
-
-            /* Caption text */
-            .text {
-              color: #f2f2f2;
-              font-size: 15px;
-              padding: 8px 12px;
-              position: absolute;
-              bottom: 8px;
-              width: 100%;
-              text-align: center;
-            }
-
             /* Number text (1/3 etc) */
             .numbertext {
               color: #f2f2f2;
