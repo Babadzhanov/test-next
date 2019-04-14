@@ -7,10 +7,7 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0;
       overflow-x: hidden;
       background-color: #f1f1f1;
-    }
-
-    * {
-        font-family: 'Barlow', sans-serif;
+      font-family: 'Barlow', sans-serif;
     }
 
   `;
